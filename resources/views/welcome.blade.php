@@ -11,14 +11,10 @@
     <form action="/entidades" method="POST" role="form">
         @csrf()
         <legend>Guardar una entidad</legend>
-
         <div class="form-group">
             <label for="">Nombre de la entidad</label>
             <input type="text" class="form-control" id="entidad" name="entidad" placeholder="Escriba el nombre de la entidad">
         </div>
-
-
-
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 
