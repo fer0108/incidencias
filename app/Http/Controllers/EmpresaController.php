@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Entidad;
+use App\Empresa;
 use Illuminate\Http\Request;
 
-class EntidadController extends Controller
+class EmpresaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class EntidadController extends Controller
      */
     public function index()
     {
-        $qs = Entidad::all();
-        return $qs;
+        //
     }
 
     /**
@@ -36,31 +35,27 @@ class EntidadController extends Controller
      */
     public function store(Request $request)
     {
-        $entidad = new Entidad();
-        $entidad->entidad = $request['entidad'];
-        $entidad->save();
-        return $entidad;
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Entidad  $entidad
+     * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function show(Entidad $entidad, $id)
+    public function show(Empresa $empresa)
     {
-        $registroEncontrado = Entidad::find($id);
-        return $registroEncontrado;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Entidad  $entidad
+     * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entidad $entidad)
+    public function edit(Empresa $empresa)
     {
         //
     }
@@ -69,29 +64,22 @@ class EntidadController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Entidad  $entidad
+     * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entidad $entidad, $id)
+    public function update(Request $request, Empresa $empresa)
     {
-        $data = $request->validate([
-            'entidad' => 'required|string'
-        ]);
-        $registroEncontrado = Entidad::find($id);
-        $registroEncontrado->entidad = $data['entidad'];
-        return $entidad;
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Entidad  $entidad
+     * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entidad $entidad, $id)
+    public function destroy(Empresa $empresa)
     {
-        $registroEncontrado = Entidad::find($id);
-        $registroEncontrado->delete();
-        return $registroEncontrado;
+        //
     }
 }

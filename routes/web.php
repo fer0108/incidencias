@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('entidades', 'EntidadController@index');
+Route::get('entidades/{id}', 'EntidadController@show');
+Route::post('entidades', 'EntidadController@store');
+Route::patch('entidades/{id}', 'EntidadController@update');
+Route::delete('entidades/{id}', 'EntidadController@destroy');
