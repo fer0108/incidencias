@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{$item->entidad}}</td>
                     <td>
-                        <a href="/entidades/update/{{$item->id}}">Editar</a>
+                        <a href="/entidades/edit/{{$item->id}}">Editar</a>
                         <form action="{{url('entidades', $item->id)}}"  method="POST" role="form" id="delete_form_{{$item->id}}">
                             @csrf()
                             @method('DELETE')

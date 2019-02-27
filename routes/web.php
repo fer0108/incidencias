@@ -5,7 +5,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('entidades/update/{entidad}', 'EntidadController@edit');
+Route::get('entidades/edit/{entidad}', 'EntidadController@edit');
 Route::get('entidades/list', 'EntidadController@list');
 Route::get('entidades/create', function () {
     return view('welcome');
