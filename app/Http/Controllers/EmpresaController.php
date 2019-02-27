@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Entidad;
+use App\Empresa;
 use Illuminate\Http\Request;
 
-class EntidadController extends Controller
+class EmpresaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EntidadController extends Controller
      */
     public function index()
     {
-        return Entidad::all(); // select * from entidades
+        //
     }
 
     /**
@@ -35,64 +35,51 @@ class EntidadController extends Controller
      */
     public function store(Request $request)
     {
-        // el objeto request traer los datos del form
-        $model = new Entidad();
-        $model->entidad = $request['entidad'];
-        $model->save();
-        return redirect('entidades/list');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Entidad  $entidad
+     * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function show(Entidad $entidad)
+    public function show(Empresa $empresa)
     {
-        return $entidad;
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Entidad  $entidad
+     * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Entidad $entidad)
+    public function edit(Empresa $empresa)
     {
-        return view('editar', ['entidad' => $entidad]);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Entidad  $entidad
+     * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Entidad $entidad)
+    public function update(Request $request, Empresa $empresa)
     {
-        $entidad->entidad = $request['entidad'];
-        $entidad->save();
-        return redirect('entidades/list');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Entidad  $entidad
+     * @param  \App\Empresa  $empresa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Entidad $entidad)
+    public function destroy(Empresa $empresa)
     {
-        $entidad->delete();
-        return redirect('entidades/list');
-    }
-
-    public function list()
-    {
-        $rs = $this->index();
-        return view('lista', ['rs' => $rs]);
+        //
     }
 }

@@ -8,12 +8,13 @@
 </head>
 <body>
 
-    <form action="/entidades" method="POST" role="form">
+    <form action="{{url('entidades', $entidad->id)}}" method="POST" role="form">
         @csrf()
+        @method('PATCH')
         <legend>Agregar entidad</legend>
         <div class="form-group">
             <label for="">Nombre de la entidad</label>
-            <input name="entidad" type="text" class="form-control" id="entidad" placeholder="Input field">
+            <input value="{{$entidad->entidad}}" name="entidad" type="text" class="form-control" id="entidad" placeholder="Input field">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
