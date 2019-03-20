@@ -12,6 +12,14 @@
             <label for="">Nombre de la entidad</label>
             <input name="entidad" type="text" class="form-control" id="entidad" placeholder="Nombre de la entidad">
         </div>
+
+        <select name="sexo_id" class="form-control" required="required">
+            <option value="">seleccione</option>
+            @foreach($sexos as $item)
+            <option value="{{$item->id}}">{{$item->sexo}}</option>
+            @endforeach
+        </select>
+
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
   </div>

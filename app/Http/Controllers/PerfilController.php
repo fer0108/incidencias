@@ -14,7 +14,11 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        //
+        $rs = Perfil::with([
+            'sexo',
+            'entidad'
+        ])->get();
+        return $rs;
     }
 
     /**

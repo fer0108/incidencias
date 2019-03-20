@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entidad;
 use Illuminate\Http\Request;
+use App\Sexo;
 
 class EntidadController extends Controller
 {
@@ -14,7 +15,9 @@ class EntidadController extends Controller
      */
     public function index()
     {
-        return Entidad::all(); // select * from entidades
+        return Entidad::with([
+            'perfiles'
+        ])->get();
     }
 
     /**
@@ -24,7 +27,9 @@ class EntidadController extends Controller
      */
     public function create()
     {
-        //
+        $sexos = Sexo::all();
+        // return view('welcome', ['sexos' => $sexos]);
+        return view('welcome', compact('sexos'));
     }
 
     /**
