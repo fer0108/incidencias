@@ -16,19 +16,3 @@ Route::get('entidades/{entidad}', 'EntidadController@show');
 Route::post('entidades', 'EntidadController@store');
 Route::patch('entidades/{entidad}', 'EntidadController@update');
 Route::delete('entidades/{entidad}', 'EntidadController@destroy');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

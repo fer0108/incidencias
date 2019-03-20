@@ -72,8 +72,17 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-sm-2 bg-light">
+                        @yield('sidebar')
+                    </div>
+                    <div class="col">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
 </body>
