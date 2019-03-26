@@ -20,6 +20,15 @@
             @endforeach
         </select>
 
+        @component('componentes.select', ['label' => 'Sexo', 'data' => $sexos, 'tag' => 'sexo'])
+        @endcomponent
+
+        @component('componentes.text', ['label' => 'Nombres'])
+        @endcomponent
+
+        @component('componentes.text', ['label' => 'Apellidos'])
+        @endcomponent
+
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
   </div>
