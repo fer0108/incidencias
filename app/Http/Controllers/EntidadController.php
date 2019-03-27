@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Entidad;
 use Illuminate\Http\Request;
-use App\Sexo;
 
 class EntidadController extends Controller
 {
@@ -14,10 +13,11 @@ class EntidadController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
-        return Entidad::with([
-            'perfiles'
-        ])->get();
+        $qs = Entidad::all();
+
+    return $qs;
     }
 
     /**
@@ -25,11 +25,13 @@ class EntidadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $sexos = Sexo::all();
-        // return view('welcome', ['sexos' => $sexos]);
-        return view('welcome', compact('sexos'));
+        dd('dsfgsd');
+        $entidad = new  Entidad();
+        $entidad->entidad = $request['entidad'];
+        $entidad->save();
+        return redirect('entidades/list');
     }
 
     /**
@@ -40,11 +42,10 @@ class EntidadController extends Controller
      */
     public function store(Request $request)
     {
-        // el objeto request traer los datos del form
-        $model = new Entidad();
-        $model->entidad = $request['entidad'];
-        $model->save();
-        return redirect('entidades/list');
+        $entidad = new  Entidad();
+        $entidad->entidad = $request['entidad'];
+        $entidad->save();
+        return $entidad;
     }
 
     /**
@@ -53,9 +54,10 @@ class EntidadController extends Controller
      * @param  \App\Entidad  $entidad
      * @return \Illuminate\Http\Response
      */
-    public function show(Entidad $entidad)
+    public function show(Entidad $entidad, $id)
     {
-        return $entidad;
+        $registroEncontrado = Entidad::find($id);
+        return $registroEncontrado;
     }
 
     /**
@@ -66,7 +68,7 @@ class EntidadController extends Controller
      */
     public function edit(Entidad $entidad)
     {
-        return view('editar', ['entidad' => $entidad]);
+        return view('entidades/editar', ['entidad' => $entidad]);
     }
 
     /**
@@ -83,6 +85,7 @@ class EntidadController extends Controller
         return redirect('entidades/list');
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -98,6 +101,7 @@ class EntidadController extends Controller
     public function list()
     {
         $rs = $this->index();
-        return view('lista', ['rs' => $rs]);
+        return view('entidades/lista', ['rs' => $rs]);
     }
+
 }

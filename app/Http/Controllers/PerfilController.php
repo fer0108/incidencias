@@ -14,11 +14,9 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        $rs = Perfil::with([
-            'sexo',
-            'entidad'
-        ])->get();
-        return $rs;
+        // $rs = Perfil::with(['sexo'])->get();
+        return view('welcome');
+
     }
 
     /**
