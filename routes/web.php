@@ -1,9 +1,4 @@
 <?php
-
-use App\Sexo;
-use App\Modulo;
-use App\Perfil;
-use App\Entidad;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,11 +17,6 @@ Route::delete('entidades/{entidad}', 'EntidadController@destroy');
 
 Route::get('perfiles', 'PerfilController@index');
 
-
-
-
-
-
 Route::get('cargos/edit/{cargo}', 'CargoController@edit');
 Route::get('cargos/list', 'CargoController@list');
 Route::get('cargos/create', function () {
@@ -40,21 +30,21 @@ Route::patch('cargos/{cargo}', 'CargoController@update');
 Route::post('cargos/{cargo}', 'CargoController@create');
 Route::delete('cargos/{cargo}', 'CargoController@destroy');
 
-Route::get('entidades/edit/{entidad}', 'EntidadController@edit');
-Route::get('entidades/list', 'EntidadController@list');
-Route::get('entidades/create', function () {
-    $sexos = Sexo::all();
-    $entidades = Entidad::all();
+// Route::get('entidades/edit/{entidad}', 'EntidadController@edit');
+// Route::get('entidades/list', 'EntidadController@list');
+// Route::get('entidades/create', function () {
+//     $sexos = Sexo::all();
+//     $entidades = Entidad::all();
 
-    return view('entidades/create', ['sexos' => $sexos, 'entidades' => $entidades]);
-});
+//     return view('entidades/create', ['sexos' => $sexos, 'entidades' => $entidades]);
+// });
 
-Route::get('entidades', 'EntidadController@index');
-Route::get('entidades/{entidad}', 'EntidadController@show');
-Route::post('entidades', 'EntidadController@store');
-Route::patch('entidades/{entidad}', 'EntidadController@update');
-Route::post('entidades/{entidad}', 'EntidadController@create');
-Route::delete('entidades/{entidad}', 'EntidadController@destroy');
+// Route::get('entidades', 'EntidadController@index');
+// Route::get('entidades/{entidad}', 'EntidadController@show');
+// Route::post('entidades', 'EntidadController@store');
+// Route::patch('entidades/{entidad}', 'EntidadController@update');
+// Route::post('entidades/{entidad}', 'EntidadController@create');
+// Route::delete('entidades/{entidad}', 'EntidadController@destroy');
 
 Route::get('modulos/edit/{modulo}', 'ModuloController@edit');
 Route::get('modulos/list', 'ModuloController@list');
@@ -97,3 +87,8 @@ Route::delete('tipoIncidencias/{tipo}', 'TipoIncidenciaController@destroy');
 
 
 Route::get('perfiles', 'PerfilController@index');
+
+
+
+Route::resource('roles', 'RolesController');
+Route::resource('permisos', 'PermisosController');

@@ -13,11 +13,9 @@ class CargoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
     {
         $qs = Cargo::all();
-
-    return $qs;
+        return $qs;
     }
 
     /**

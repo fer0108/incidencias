@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Entidad;
 use Illuminate\Http\Request;
+use App\Sexo;
+use App\Http\Requests\StoreEntidad;
 
 class EntidadController extends Controller
 {
@@ -13,11 +15,10 @@ class EntidadController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
     {
         $qs = Entidad::all();
 
-    return $qs;
+        return $qs;
     }
 
     /**
@@ -27,11 +28,9 @@ class EntidadController extends Controller
      */
     public function create(Request $request)
     {
-        dd('dsfgsd');
-        $entidad = new  Entidad();
-        $entidad->entidad = $request['entidad'];
-        $entidad->save();
-        return redirect('entidades/list');
+        $sexos = Sexo::all();
+        $entidades = Entidad::all();
+        return view('entidades.create', compact('sexos', 'entidades'));
     }
 
     /**
@@ -40,10 +39,11 @@ class EntidadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreEntidad $request)
     {
+        $data = $request->validated();
         $entidad = new  Entidad();
-        $entidad->entidad = $request['entidad'];
+        $entidad->entidad = $data['entidad'];
         $entidad->save();
         return $entidad;
     }
@@ -98,7 +98,7 @@ class EntidadController extends Controller
         return redirect('entidades/list');
     }
 
-    public function list()
+    public function list(Request $request)
     {
         $rs = $this->index();
         return view('entidades/lista', ['rs' => $rs]);
