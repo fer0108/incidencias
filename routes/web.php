@@ -92,3 +92,5 @@ Route::get('perfiles', 'PerfilController@index');
 
 Route::resource('roles', 'RolesController');
 Route::resource('permisos', 'PermisosController');
+
+// Comentario
