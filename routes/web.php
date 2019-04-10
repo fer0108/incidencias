@@ -94,3 +94,5 @@ Route::resource('roles', 'RolesController');
 Route::resource('permisos', 'PermisosController');
 
 // Comentario
+
+//practicando el push
